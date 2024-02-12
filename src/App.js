@@ -71,6 +71,12 @@ const App = () => {
       answers: ["206", "207", "205", "202"],
       correctAnswer: "haming",
     },
+    {
+      id: 10,
+      question: "how many bones are there in a human penis?",
+      answers: ["206", "207", "205", "202"],
+      correctAnswer: "haming",
+    },
   ];
   return (
     <QuestionDataContext.Provider value={questionData}>
