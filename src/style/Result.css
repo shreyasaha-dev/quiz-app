@@ -1,0 +1,39 @@
+.result-mid-section {
+  background-color: white;
+  padding: 30px;
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.total-result-section {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.option-section {
+  margin: 30px 0 150px;
+}
+
+.result-bottom-section > button {
+  padding: 10px 50px;
+  border-radius: 30px;
+  border: 2px rgb(153, 152, 152) solid;
+  font-weight: bold;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.result-bottom-section > button:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+.result-mid-section > h1 {
+  font-size: 45px;
+}
+.result-mid-section > h1 > span {
+  color: rgb(73, 184, 73);
+}
