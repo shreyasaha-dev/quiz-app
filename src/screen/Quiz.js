@@ -56,7 +56,6 @@ const Quiz = () => {
   return (
     <div className="quiz-page">
       <div className="quiz-total-section">
-        <p>{JSON.stringify(selectedAnswer, null, 4)}</p>
         <p>Question {questionData[questionId].id + 1} : Select an answer</p>
         <h1>{questionData[questionId].question}</h1>
         <div className="option-section">
