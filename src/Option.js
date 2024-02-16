@@ -12,7 +12,8 @@ const Option = ({ answer, index, handleChange }) => {
   return (
     <div
       className={
-        selectedId === answer || selectedAnswer[questionId] === answer
+        selectedId === answer ||
+        (selectedId === "" && selectedAnswer[questionId] === answer)
           ? "selected-option total-option"
           : "total-option"
       }
@@ -20,7 +21,10 @@ const Option = ({ answer, index, handleChange }) => {
       <input
         type="radio"
         onChange={handleChange}
-        checked={selectedId === answer || selectedAnswer[questionId] === answer}
+        checked={
+          selectedId === answer ||
+          (selectedId === "" && selectedAnswer[questionId] === answer)
+        }
       />
       <p>{answer}</p>
     </div>

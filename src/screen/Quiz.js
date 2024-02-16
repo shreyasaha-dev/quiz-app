@@ -18,13 +18,19 @@ const Quiz = () => {
     setSelectedId(item);
   };
   const nextHandler = () => {
-    if (selectedId !== "") {
+    if (selectedId !== "" || selectedAnswer[questionId] !== "") {
       setQuestionId((prev) => {
         return prev + 1;
       });
-      setSelectedAnswer((prev) => {
-        return [...prev, selectedId];
-      });
+      if (selectedId !== "" && selectedAnswer[questionId] === "") {
+        setSelectedAnswer((prev) => {
+          return [...prev, selectedId];
+        });
+      } else if (selectedId !== "" && selectedAnswer[questionId] !== "") {
+        setSelectedAnswer((prev) => {
+          return prev.splice(questionId, 1, selectedId);
+        });
+      }
       setSelectedId("");
     } else {
       alert("Please select an answer");
@@ -34,6 +40,7 @@ const Quiz = () => {
     setQuestionId((prev) => {
       return prev - 1;
     });
+    setSelectedId("");
   };
   const submitHandler = () => {
     if (selectedId !== "") {
@@ -49,6 +56,7 @@ const Quiz = () => {
   return (
     <div className="quiz-page">
       <div className="quiz-total-section">
+        <p>{JSON.stringify(selectedAnswer, null, 4)}</p>
         <p>Question {questionData[questionId].id + 1} : Select an answer</p>
         <h1>{questionData[questionId].question}</h1>
         <div className="option-section">
