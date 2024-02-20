@@ -69,7 +69,7 @@ const App = () => {
       id: 9,
       question: "how many bones are there in a human body?",
       answers: ["206", "207", "205", "202"],
-      correctAnswer: "haming",
+      correctAnswer: "206",
     },
   ];
   return (

@@ -43,11 +43,17 @@ const Quiz = () => {
     setSelectedId("");
   };
   const submitHandler = () => {
-    if (selectedId !== "") {
+    if (selectedId !== "" || selectedAnswer[questionId]) {
       navigate("/result");
-      setSelectedAnswer((prev) => {
-        return [...prev, selectedId];
-      });
+      if (selectedId !== "" && !selectedAnswer[questionId]) {
+        setSelectedAnswer((prev) => {
+          return [...prev, selectedId];
+        });
+      } else if (selectedId !== "" && selectedAnswer[questionId]) {
+        const answers = selectedAnswer;
+        answers[questionId] = selectedId;
+        setSelectedAnswer(answers);
+      }
       setSelectedId("");
     } else {
       alert("Please select an answer");
