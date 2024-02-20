@@ -56,7 +56,9 @@ const Quiz = () => {
   return (
     <div className="quiz-page">
       <div className="quiz-total-section">
-        <p>Question {questionData[questionId].id + 1} : Select an answer</p>
+        <p>
+          Question {questionData[questionId].id + 1} : Please select an answer
+        </p>
         <h1>{questionData[questionId].question}</h1>
         <div className="option-section">
           {questionData[questionId].answers.map((item, i) => {
