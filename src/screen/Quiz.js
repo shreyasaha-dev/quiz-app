@@ -18,18 +18,18 @@ const Quiz = () => {
     setSelectedId(item);
   };
   const nextHandler = () => {
-    if (selectedId !== "" || selectedAnswer[questionId] !== "") {
+    if (selectedId !== "" || selectedAnswer[questionId]) {
       setQuestionId((prev) => {
         return prev + 1;
       });
-      if (selectedId !== "" && selectedAnswer[questionId] === "") {
+      if (selectedId !== "" && !selectedAnswer[questionId]) {
         setSelectedAnswer((prev) => {
           return [...prev, selectedId];
         });
-      } else if (selectedId !== "" && selectedAnswer[questionId] !== "") {
-        setSelectedAnswer((prev) => {
-          return prev.splice(questionId, 1, selectedId);
-        });
+      } else if (selectedId !== "" && selectedAnswer[questionId]) {
+        const answers = selectedAnswer;
+        answers[questionId] = selectedId;
+        setSelectedAnswer(answers);
       }
       setSelectedId("");
     } else {
